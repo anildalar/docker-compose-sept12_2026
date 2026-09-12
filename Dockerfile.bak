@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install apache2 sudo vim zip unzip  -y
+
+WORKDIR /var/www/html
+
+COPY xenforo/ .
+
+CMD ["apachectl","-D","FOREGROUND"]
