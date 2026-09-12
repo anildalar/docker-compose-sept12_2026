@@ -1,14 +1,13 @@
-FROM ubuntu:latest
+FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update -y && \
     apt upgrade -y && \
     apt install -y \
+        apache2 \
         software-properties-common \
         ca-certificates \
-        apt-transport-https \
-        lsb-release \
         sudo \
         vim \
         zip \
@@ -16,7 +15,6 @@ RUN apt update -y && \
     add-apt-repository ppa:ondrej/php -y && \
     apt update -y && \
     apt install -y \
-        apache2 \
         php8.3 \
         libapache2-mod-php8.3 \
         php8.3-mysql \
