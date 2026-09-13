@@ -11,7 +11,8 @@ RUN apt update -y && \
         sudo \
         vim \
         zip \
-        unzip && \
+        unzip \
+        imagemagick && \
     add-apt-repository ppa:ondrej/php -y && \
     apt update -y && \
     apt install -y \
@@ -25,7 +26,11 @@ RUN apt update -y && \
         php8.3-zip \
         php8.3-intl \
         php8.3-bcmath \
-        php8.3-opcache && \
+        php8.3-opcache \
+        php8.3-gmp \
+        php8.3-imagick \
+        php8.3-exif && \
+    a2enmod rewrite && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
